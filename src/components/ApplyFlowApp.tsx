@@ -409,7 +409,7 @@ function ApplicationDetail({ id, goBack }:{ id:string; goBack:()=>void }){
           <TabsTrigger value="timeline">Timeline</TabsTrigger>
         </TabsList>
         <TabsContent value="job">
-          <Card><CardContent className="pt-6 text-sm text-muted-foreground">(Mock JD) We're seeking a Data Scientist to build ML pipelines, collaborate with stakeholders, and drive insights using Python, SQL, and cloud tooling.</CardContent></Card>
+          <Card><CardContent className="pt-6 text-sm text-muted-foreground">(Mock JD) We&apos;re seeking a Data Scientist to build ML pipelines, collaborate with stakeholders, and drive insights using Python, SQL, and cloud tooling.</CardContent></Card>
         </TabsContent>
         <TabsContent value="docs">
           <Card><CardContent className="pt-6 space-y-3">
