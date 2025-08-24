@@ -1,7 +1,6 @@
 "use client"
 
 import React, { useMemo, useState } from "react";
-import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -10,9 +9,9 @@ import { Badge } from "@/components/ui/badge";
 import { Switch } from "@/components/ui/switch";
 import {
   Plus, Search, Star, Trash2, MoreHorizontal, CheckCircle2, Clock,
-  UserRound, Building2, ChevronRight, BookOpen, Layers, FileText,
+  Building2, ChevronRight, Layers, FileText,
   Home as HomeIcon, CreditCard, HelpCircle, Library, Zap, Users,
-  BarChart2, Settings, ClipboardList, ArrowLeft
+  BarChart2, ClipboardList, ArrowLeft
 } from "lucide-react";
 
 /**
@@ -47,7 +46,7 @@ const MOCK_JOBS: JobRow[] = [
 
 // ---------------- Helpers ----------------
 const statusBadge = (s: Status) => {
-  const map: Record<Status, { label: string; variant: any }> = {
+  const map: Record<Status, { label: string; variant: "default" | "destructive" | "outline" | "secondary" }> = {
     saved: { label: "Saved", variant: "secondary" },
     delegated: { label: "Delegated", variant: "default" },
     applied: { label: "Applied", variant: "outline" },
@@ -66,7 +65,7 @@ async function apiAddJob(url: string): Promise<JobRow> {
 
 // ---------------- UI: Public Pages ----------------
 function PublicShell({ page, setPage }: { page: string; setPage: (p: string)=>void }){
-  const NavLink = ({to, icon:Icon, children}:{to:string; icon:any; children:any}) => (
+  const NavLink = ({to, icon:Icon, children}:{to:string; icon:React.ComponentType<{className?:string}>; children:React.ReactNode}) => (
     <button onClick={()=>setPage(to)} className={`inline-flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-muted ${page===to?"text-primary":"text-foreground"}`}>
       <Icon className="h-4 w-4"/> {children}
     </button>
@@ -341,7 +340,7 @@ function UserDashboard({ openApp }:{ openApp:(id:string)=>void }){
             </div>
             <div className="flex items-center gap-2"><span className="text-sm text-muted-foreground">Show my starred</span><Switch/></div>
           </div>
-          <Tabs value={tab} onValueChange={(v)=>setTab(v as any)}>
+          <Tabs value={tab} onValueChange={(v)=>setTab(v as Status|"all")}>
             <TabsList className="mb-4">
               <TabsTrigger value="saved">Saved</TabsTrigger>
               <TabsTrigger value="delegated">Delegated</TabsTrigger>
@@ -410,7 +409,7 @@ function ApplicationDetail({ id, goBack }:{ id:string; goBack:()=>void }){
           <TabsTrigger value="timeline">Timeline</TabsTrigger>
         </TabsList>
         <TabsContent value="job">
-          <Card><CardContent className="pt-6 text-sm text-muted-foreground">(Mock JD) We’re seeking a Data Scientist to build ML pipelines, collaborate with stakeholders, and drive insights using Python, SQL, and cloud tooling.</CardContent></Card>
+          <Card><CardContent className="pt-6 text-sm text-muted-foreground">(Mock JD) We're seeking a Data Scientist to build ML pipelines, collaborate with stakeholders, and drive insights using Python, SQL, and cloud tooling.</CardContent></Card>
         </TabsContent>
         <TabsContent value="docs">
           <Card><CardContent className="pt-6 space-y-3">
