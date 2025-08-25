@@ -18,7 +18,7 @@ export default function WaitlistPage() {
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    setError(""); // Clear previous errors
+    setError("");
 
     try {
       const response = await fetch('/api/waitlist', {
@@ -34,16 +34,15 @@ export default function WaitlistPage() {
       }
 
       setSubmitted(true);
-   } catch (err) {
-  if (err instanceof Error) {
-    setError(err.message);
-  } else {
-    setError("An unexpected error occurred.");
-  }
-  }
+    } catch (err) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError("An unexpected error occurred.");
+      }
+    }
   };
 
-  // This is the success message shown after the form is submitted
   if (submitted) {
     return (
       <div className="flex items-center justify-center py-12 md:py-24">
@@ -62,7 +61,6 @@ export default function WaitlistPage() {
     );
   }
 
-  // This is the form shown before submission
   return (
     <div className="flex items-center justify-center py-12 md:py-24">
       <Card className="w-full max-w-sm">
@@ -76,7 +74,7 @@ export default function WaitlistPage() {
               <Label htmlFor="full-name">Full Name</Label>
               <Input 
                 id="full-name" 
-                placeholder="Pranav Ganta" 
+                placeholder="Your Name" 
                 required 
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -87,7 +85,7 @@ export default function WaitlistPage() {
               <Input 
                 id="email" 
                 type="email" 
-                placeholder="m@example.com" 
+                placeholder="name@example.com" 
                 required 
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
