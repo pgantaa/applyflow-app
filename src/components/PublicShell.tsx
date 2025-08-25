@@ -5,9 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { CreditCard, Zap, Home as HomeIcon, Info, Cpu } from "lucide-react";
-import { ThemeToggle } from "@/components/ThemeToggle";
-import { AuthButtons } from "@/components/AuthButtons"; // 1. Import the new component
+import { CreditCard, Zap, Home as HomeIcon, Info, Cpu, MoreHorizontal } from "lucide-react"; // Added MoreHorizontal icon
 
 export function PublicShell() {
   const pathname = usePathname();
@@ -24,7 +22,7 @@ export function PublicShell() {
         <div className="flex items-center gap-3">
           <Zap className="h-5 w-5 text-primary" />
           <span className="font-semibold">ApplyFlow</span>
-          <Badge variant="outline" className="ml-2">Beta</Badge>
+          {/* The "Beta" badge next to the logo has been removed */}
         </div>
         <nav className="hidden md:flex items-center gap-2">
           <NavLink href="/" icon={HomeIcon}>Home</NavLink>
@@ -33,8 +31,19 @@ export function PublicShell() {
           <NavLink href="/tech" icon={Cpu}>The AI Tech</NavLink>
         </nav>
         <div className="flex items-center gap-2">
-          <ThemeToggle />
-          <AuthButtons /> {/* 2. Replace the old "Open App" button */}
+          {/* Buttons for larger screens */}
+          <div className="hidden md:flex items-center gap-2">
+            <Button variant="ghost" asChild><Link href="/login">Login</Link></Button>
+            <Button asChild><Link href="/signup">Sign Up</Link></Button>
+          </div>
+          {/* Menu for smaller screens */}
+          <div className="md:hidden flex items-center gap-2">
+            <Button variant="ghost" asChild><Link href="/login">Login</Link></Button>
+            <Button variant="ghost" size="icon">
+              <MoreHorizontal className="h-5 w-5" />
+              <span className="sr-only">More options</span>
+            </Button>
+          </div>
         </div>
       </div>
     </header>
