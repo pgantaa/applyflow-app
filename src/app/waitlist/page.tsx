@@ -34,9 +34,13 @@ export default function WaitlistPage() {
       }
 
       setSubmitted(true);
-    } catch (err: any) {
-      setError(err.message);
-    }
+   } catch (err) {
+  if (err instanceof Error) {
+    setError(err.message);
+  } else {
+    setError("An unexpected error occurred.");
+  }
+  }
   };
 
   // This is the success message shown after the form is submitted
@@ -48,9 +52,9 @@ export default function WaitlistPage() {
             <div className="mx-auto bg-green-100 dark:bg-green-900 p-3 rounded-full">
               <CheckCircle2 className="h-8 w-8 text-green-600" />
             </div>
-            <CardTitle className="text-2xl pt-4">You're on the list!</CardTitle>
+            <CardTitle className="text-2xl pt-4">You&apos;re on the list!</CardTitle>
             <CardDescription>
-              Thank you for joining the waitlist. We'll be in touch soon with updates.
+              Thank you for joining the waitlist. We&apos;ll be in touch soon with updates.
             </CardDescription>
           </CardHeader>
         </Card>
