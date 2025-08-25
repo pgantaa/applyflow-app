@@ -27,7 +27,7 @@ export function LogoCloud() {
         {logos.map((logo) => (
           <img
           key={logo.name}
-          className="h-7 w-auto transition-all duration-300 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 dark:invert"
+          className="h-7 w-auto transition-all duration-300  opaity-100 hover:opacity-100 dark:invert"
           src={logo.src}
           alt={logo.name}
           width={100} // Add a base width
