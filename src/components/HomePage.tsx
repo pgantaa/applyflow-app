@@ -2,9 +2,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card"; // Removed CardTitle
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle2, Layers, FileText, Users } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import { AnimatedAppPreview } from "@/components/AnimatedAppPreview";
 import { LogoCloud } from "@/components/LogoCloud";
 import { HowItWorksSection } from "@/components/HowItWorksSection";
@@ -14,13 +14,10 @@ import Link from "next/link";
 const MotionCard = motion(Card);
 
 export default function HomePage() {
-  const features = [
-    { title: "Paste Any Job Link", desc: "Our system scrapes and structures any job description in seconds.", icon: Layers },
-    { title: "AI-Tailored Documents", desc: "We generate custom resumes and cover letters that beat ATS filters.", icon: FileText },
-    { title: "Human-Powered Application", desc: "A real assistant submits your application, handling any tricky forms.", icon: Users },
-  ];
+  // The 'features' array was removed as it was unused.
 
   const testimonials = [
+    // Corrected unescaped characters in the quotes
     { quote: "ApplyFlow saved me 10+ hours a week. I went from 0 interviews to 5 in the first month!", name: "Sarah J.", role: "Product Manager" },
     { quote: "The quality of the tailored resumes is insane. It's like having a personal career coach.", name: "Michael B.", role: "Software Engineer" },
     { quote: "Finally, a service that just works. I delegated my entire job search and focused on prepping for interviews.", name: "Emily L.", role: "UX Designer" },
@@ -41,7 +38,7 @@ export default function HomePage() {
             Stop Applying. Start Interviewing.
           </h1>
           <p className="text-lg text-muted-foreground">
-            We apply to jobs for you — with customized resumes & cover letters. Human assistants + AI tailoring. No bots to get you banned.
+            We apply to jobs for you — with customized resumes &amp; cover letters. Human assistants + AI tailoring. No bots to get you banned.
           </p>
           <div className="flex gap-4 justify-center md:justify-start">
             <Button size="lg" className="shadow-lg" asChild>
@@ -75,7 +72,7 @@ export default function HomePage() {
       <section className="text-center space-y-12">
         <div className="space-y-3">
             <h2 className="text-3xl md:text-4xl font-bold">Loved by Job Seekers Everywhere</h2>
-            <p className="max-w-2xl mx-auto text-muted-foreground">Don't just take our word for it. Here's what people are saying.</p>
+            <p className="max-w-2xl mx-auto text-muted-foreground">Don&apos;t just take our word for it. Here&apos;s what people are saying.</p>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {testimonials.map((t, i) => (
@@ -88,7 +85,7 @@ export default function HomePage() {
               className="flex flex-col text-left bg-background/50 backdrop-blur-sm"
             >
               <CardContent className="pt-6 flex-grow">
-                <p className="italic">"{t.quote}"</p>
+                <p className="italic">&quot;{t.quote}&quot;</p>
               </CardContent>
               <CardHeader>
                 <div className="font-semibold">{t.name}</div>

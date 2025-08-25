@@ -3,11 +3,12 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Badge } from '@/components/ui/badge';
 import { FileText, Layers } from 'lucide-react';
+import { badgeVariants } from "@/components/ui/badge";
+import { type VariantProps } from "class-variance-authority";
 
 export type Status = "saved" | "delegated" | "applied" | "interview" | "on_hold";
 
-const statuses: { status: Status; label: string; variant: any }[] = [
-  { status: 'saved', label: 'Saved', variant: 'secondary' },
+const statuses: { status: Status; label: string; variant: VariantProps<typeof badgeVariants>["variant"] }[] = [  { status: 'saved', label: 'Saved', variant: 'secondary' },
   { status: 'delegated', label: 'Delegated', variant: 'default' },
   { status: 'applied', label: 'Applied', variant: 'outline' },
 ];

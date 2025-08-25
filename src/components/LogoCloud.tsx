@@ -1,5 +1,6 @@
 "use client";
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const logos = [
   { name: 'Google', src: '/logos/google.png' },
@@ -25,10 +26,12 @@ export function LogoCloud() {
       <div className="mt-6 flex justify-center items-center gap-x-8 gap-y-4 flex-wrap">
         {logos.map((logo) => (
           <img
-            key={logo.name}
-            className="h-7 w-auto transition-all duration-300 opacity-100 hover:opacity-100 dark:invert"
-            src={logo.src}
-            alt={logo.name}
+          key={logo.name}
+          className="h-7 w-auto transition-all duration-300 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 dark:invert"
+          src={logo.src}
+          alt={logo.name}
+          width={100} // Add a base width
+          height={32}  // Add a base height
           />
         ))}
       </div>

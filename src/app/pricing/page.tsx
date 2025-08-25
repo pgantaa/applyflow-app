@@ -34,7 +34,7 @@ export default function PricingPage() {
     <div className="w-full max-w-6xl mx-auto px-4 md:px-6 py-12 md:py-24">
       <div className="text-center space-y-3 mb-16">
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
-          Find the Plan That's Right for You
+          Find the Plan That&apos;s Right for You
         </h1>
         <p className="text-muted-foreground max-w-xl mx-auto">
           Simple, transparent pricing. Cancel anytime.
