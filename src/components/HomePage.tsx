@@ -10,6 +10,7 @@ import { LogoCloud } from "@/components/LogoCloud";
 import { HowItWorksSection } from "@/components/HowItWorksSection";
 import { CtaSection } from "@/components/CtaSection";
 import Link from "next/link";
+import { signIn } from "next-auth/react"; // 1. Import the signIn function
 
 const MotionCard = motion(Card);
 
@@ -41,8 +42,9 @@ export default function HomePage() {
             We apply to jobs for you — with customized resumes &amp; cover letters. Human assistants + AI tailoring. No bots to get you banned.
           </p>
           <div className="flex gap-4 justify-center md:justify-start">
+            {/* 2. This button is now the Join Waitlist button */}
             <Button size="lg" className="shadow-lg" asChild>
-              <Link href="/signup">Get Started Free</Link>
+             <Link href="/waitlist">Join Waitlist</Link>
             </Button>
             <Button size="lg" variant="outline" asChild>
               <Link href="/pricing">See Pricing</Link>
