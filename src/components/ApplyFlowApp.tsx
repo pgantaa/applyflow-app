@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useMemo, useState, ElementType, ReactNode } from "react";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -8,6 +9,7 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Badge, badgeVariants } from "@/components/ui/badge";
 import { type VariantProps } from "class-variance-authority";
 import { Switch } from "@/components/ui/switch";
+import NewHomePage from "@/app/page";
 import {
   Plus, Search, Star, Trash2, MoreHorizontal, CheckCircle2, Clock,
   Building2, ChevronRight, Layers, FileText,
@@ -65,6 +67,7 @@ async function apiAddJob(url: string): Promise<JobRow> {
 }
 
 // ---------------- UI: Public Pages ----------------
+
 function PublicShell({ page, setPage }: { page: string; setPage: (p: string) => void }) {
   const NavLink = ({ to, icon: Icon, children }: { to: string; icon: ElementType; children: ReactNode }) => (
     <button onClick={() => setPage(to)} className={`inline-flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-muted ${page === to ? "text-primary" : "text-foreground"}`}>
@@ -87,6 +90,7 @@ function PublicShell({ page, setPage }: { page: string; setPage: (p: string) => 
           <NavLink to="resources" icon={Library}>Resources</NavLink>
         </nav>
         <div className="flex items-center gap-2">
+          <ThemeToggle /> {/* <-- I've added the toggle here */}
           <Button variant="outline" onClick={() => setPage("user.app")}>Open App</Button>
           <Button onClick={() => setPage("assistant.queue")} variant="default">Assistant</Button>
         </div>
@@ -94,7 +98,6 @@ function PublicShell({ page, setPage }: { page: string; setPage: (p: string) => 
     </header>
   );
 }
-
 function HomePage({ setPage }: { setPage: (p: string) => void }) {
   return (
     <div className="max-w-6xl mx-auto p-6 space-y-10">
@@ -556,7 +559,7 @@ export default function App() {
       {(route === "home" || route === "pricing" || route === "faq" || route === "tools" || route === "resources") && <PublicShell page={route} setPage={setRoute} />}
       <main className="max-w-6xl mx-auto p-6">
         {/* PUBLIC PAGES */}
-        {route === "home" && <HomePage setPage={setRoute} />}
+        {route === "home" && <NewHomePage />}
         {route === "pricing" && <PricingPage />}
         {route === "faq" && <FAQPage />}
         {route === "tools" && <ToolsPage />}

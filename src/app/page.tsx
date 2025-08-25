@@ -1,5 +1,5 @@
-import App from '@/components/ApplyFlowApp'
+import HomePage from "@/components/HomePage";
 
-export default function Home() {
-  return <App />
+export default function Page() {
+  return <HomePage />;
 }
