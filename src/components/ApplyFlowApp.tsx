@@ -1,12 +1,10 @@
-
-"use client";
-
 import React, { useMemo, useState, ElementType, ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { Badge, BadgeProps } from "@/components/ui/badge";
+import { Badge, badgeVariants } from "@/components/ui/badge";
+import { type VariantProps } from "class-variance-authority";
 import { Switch } from "@/components/ui/switch";
 import {
   Plus, Search, Star, Trash2, MoreHorizontal, CheckCircle2, Clock,
@@ -35,19 +33,19 @@ export type JobRow = {
 
 // ---------------- Mock Data ----------------
 const MOCK_JOBS: JobRow[] = [
-  { id: "S293462", title: "Product Manager", company: "Meta", delegatedOn: "2024-12-30", status: "delegated", starred: true, sourceUrl: "https://linkedin.com/jobs/123" },
-  { id: "S293460", title: "Business Operations Analyst (Starlink)", company: "SpaceX", delegatedOn: "2024-12-28", status: "delegated", starred: false },
-  { id: "S293519", title: "Product Manager, Generative AI", company: "Google", delegatedOn: "2024-12-27", status: "on_hold" },
-  { id: "S293512", title: "Data Scientist", company: "NA", delegatedOn: "2024-12-26", status: "saved" },
-  { id: "S293488", title: "Product Analyst", company: "Prime Video", delegatedOn: "2024-12-25", status: "applied" },
-  { id: "S293401", title: "Business Analyst I", company: "Prime Healthcare", delegatedOn: "2024-12-24", status: "delegated" },
-  { id: "S293380", title: "Transformation Analyst", company: "Intel", delegatedOn: "2024-12-22", status: "saved" },
-  { id: "S293377", title: "Business Planning Sr. Analyst", company: "NA", delegatedOn: "2024-12-20", status: "interview" },
+  { id: "S293462", title: "Product Manager", company: "Meta", delegatedOn: "2025-12-30", status: "delegated", starred: true, sourceUrl: "https://linkedin.com/jobs/123" },
+  { id: "S293460", title: "Business Operations Analyst (Starlink)", company: "SpaceX", delegatedOn: "2025-12-28", status: "delegated", starred: false },
+  { id: "S293519", title: "Product Manager, Generative AI", company: "Google", delegatedOn: "2025-12-27", status: "on_hold" },
+  { id: "S293512", title: "Data Scientist", company: "NA", delegatedOn: "2025-12-26", status: "saved" },
+  { id: "S293488", title: "Product Analyst", company: "Prime Video", delegatedOn: "2025-12-25", status: "applied" },
+  { id: "S293401", title: "Business Analyst I", company: "Prime Healthcare", delegatedOn: "2025-12-24", status: "delegated" },
+  { id: "S293380", title: "Transformation Analyst", company: "Intel", delegatedOn: "2025-12-22", status: "saved" },
+  { id: "S293377", title: "Business Planning Sr. Analyst", company: "NA", delegatedOn: "2025-12-20", status: "interview" },
 ];
 
 // ---------------- Helpers ----------------
 const statusBadge = (s: Status) => {
-  const map: Record<Status, { label: string; variant: BadgeProps["variant"] }> = {
+  const map: Record<Status, { label: string; variant: VariantProps<typeof badgeVariants>["variant"] }> = {
     saved: { label: "Saved", variant: "secondary" },
     delegated: { label: "Delegated", variant: "default" },
     applied: { label: "Applied", variant: "outline" },
