@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import { Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "next-themes";
 import { PublicShell } from "@/components/PublicShell";
+import Providers from "@/components/Providers"; // 1. Import your new component
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,16 +24,15 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <ThemeProvider attribute="class" forcedTheme="light">
+        <Providers> {/* 2. Use the new Providers component */}
           <PublicShell />
           <main>
             {children}
           </main>
-          {/* We can add a real footer component here later */}
           <footer className="border-t py-6 text-center text-xs text-muted-foreground">
             © {new Date().getFullYear()} ApplyFlow — Human-in-the-loop job applications
           </footer>
-        </ThemeProvider>
+        </Providers>
       </body>
     </html>
   );

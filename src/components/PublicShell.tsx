@@ -5,8 +5,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { CreditCard, Zap, Home as HomeIcon, Info, Cpu } from "lucide-react"; // Added Cpu icon
+import { CreditCard, Zap, Home as HomeIcon, Info, Cpu } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { AuthButtons } from "@/components/AuthButtons"; // 1. Import the new component
 
 export function PublicShell() {
   const pathname = usePathname();
@@ -29,11 +30,11 @@ export function PublicShell() {
           <NavLink href="/" icon={HomeIcon}>Home</NavLink>
           <NavLink href="/pricing" icon={CreditCard}>Pricing</NavLink>
           <NavLink href="/about" icon={Info}>About Us</NavLink>
-          <NavLink href="/tech" icon={Cpu}>The AI Tech</NavLink> {/* <-- New Link */}
+          <NavLink href="/tech" icon={Cpu}>The AI Tech</NavLink>
         </nav>
         <div className="flex items-center gap-2">
           <ThemeToggle />
-          <Button asChild><Link href="/dashboard">Open App</Link></Button> {/* <-- Kept this as the main CTA */}
+          <AuthButtons /> {/* 2. Replace the old "Open App" button */}
         </div>
       </div>
     </header>
