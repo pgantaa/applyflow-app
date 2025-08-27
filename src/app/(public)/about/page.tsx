@@ -10,7 +10,7 @@ export default function AboutPage() {
           From All-Nighters to Offer Letters.
         </h1>
         <p className="max-w-3xl mx-auto text-lg text-slate-600 dark:text-slate-400">
-          ApplyFlow wasn&apos;t born in a boardroom. It was built in a dorm room by a student who was tired of the broken job search process—just like you. We believe your life shouldn't pause for the soul-crushing grind of applications. We built the solution we wished we had.
+          ApplyFlow wasn&apos;t born in a boardroom. It was built in a dorm room by a student who was tired of the broken job search process—just like you. We believe your life shouldn&apos;t pause for the soul-crushing grind of applications. We built the solution we wished we had.
         </p>
       </section>
 
