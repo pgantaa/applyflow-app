@@ -43,9 +43,13 @@ export default function JobQueuePage() {
         }
         const data = await response.json();
         setJobs(data);
-      } catch (err: any) {
-        setError(err.message);
-      } finally {
+      } catch (err) {
+        if (err instanceof Error) {
+          setError(err.message);
+      } else {
+    setError("Failed to fetch jobs.");
+  }
+} finally {
         setIsLoading(false);
       }
     };
