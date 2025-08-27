@@ -93,7 +93,7 @@ export default function AssistantDashboardPage() {
           <CardContent>
             <FileStack className="mx-auto h-12 w-12 text-muted-foreground mb-4" />
             <h3 className="text-lg font-medium">The Job Queue is Empty</h3>
-            <p className="text-sm text-muted-foreground">Click "Open Job Queue" to view and process applications.</p>
+            <p className="text-sm text-muted-foreground">Click &quot;Open Job Queue&quot; to view and process applications.</p>
           </CardContent>
         </Card>
       </div>

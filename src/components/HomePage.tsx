@@ -10,7 +10,6 @@ import { LogoCloud } from "@/components/LogoCloud";
 import { HowItWorksSection } from "@/components/HowItWorksSection";
 import { CtaSection } from "@/components/CtaSection";
 import Link from "next/link";
-import { signIn } from "next-auth/react"; // 1. Import the signIn function
 
 const MotionCard = motion(Card);
 
