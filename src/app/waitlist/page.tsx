@@ -123,9 +123,17 @@ export default function WaitlistPage() {
             
             {error && <p className="text-sm text-red-500">{error}</p>}
             
-            <Button type="submit" className="w-full">
-              Join Waitlist
+            <Button
+                type="submit"
+                className="w-full rounded-full bg-emerald-600 text-white font-medium
+                          hover:bg-emerald-700 active:bg-emerald-800
+                          shadow-sm hover:shadow-md transition-all duration-200
+                          focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2
+                          disabled:opacity-60 disabled:cursor-not-allowed"
+              >
+                Join Waitlist
             </Button>
+
           </form>
         </CardContent>
       </Card>
