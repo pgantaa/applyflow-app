@@ -10,7 +10,7 @@ export default function AboutPage() {
           From All-Nighters to Offer Letters.
         </h1>
         <p className="max-w-3xl mx-auto text-lg text-slate-600 dark:text-slate-400">
-          ApplyFlow wasn’t born in a boardroom. It was built in a dorm room by a student who was tired of the broken job search process—just like you. We believe your life shouldn't pause for the soul-crushing grind of applications. We built the solution we wished we had.
+          ApplyFlow wasn&apos;t born in a boardroom. It was built in a dorm room by a student who was tired of the broken job search process—just like you. We believe your life shouldn't pause for the soul-crushing grind of applications. We built the solution we wished we had.
         </p>
       </section>
 
@@ -25,7 +25,7 @@ export default function AboutPage() {
               Focus on What Matters
             </h3>
             <p className="text-slate-600 dark:text-slate-400">
-              Your time is your most valuable asset. Delegate the repetitive grind and spend your evenings upskilling, preparing for interviews, or just living your life. We make sure you never miss an opportunity, even when you're busy making memories.
+              Your time is your most valuable asset. Delegate the repetitive grind and spend your evenings upskilling, preparing for interviews, or just living your life. We make sure you never miss an opportunity, even when you&apos;re busy making memories.
             </p>
           </div>
 
@@ -47,7 +47,7 @@ export default function AboutPage() {
               Your Personal Career Team
             </h3>
             <p className="text-slate-600 dark:text-slate-400">
-              AI is a powerful tool, but it's not the whole story. Every application is reviewed by our human assistants, ensuring the quality and nuance that gets you noticed. Think of us as your dedicated job search partner.
+              AI is a powerful tool, but it&apos;s not the whole story. Every application is reviewed by our human assistants, ensuring the quality and nuance that gets you noticed. Think of us as your dedicated job search partner.
             </p>
           </div>
         </div>
