@@ -4,7 +4,7 @@ import { useSession, signIn, signOut } from "next-auth/react";
 import { Button } from "./ui/button";
 import Link from "next/link";
 import Image from "next/image";
-import { UserCircle } from "lucide-react"; // 1. Import a fallback icon
+import { UserCircle } from "lucide-react";
 
 export function AuthButtons() {
   const { data: session } = useSession();
@@ -16,7 +16,6 @@ export function AuthButtons() {
           Sign Out
         </Button>
         <Link href="/dashboard">
-          {/* 2. Check if an image exists before rendering it */}
           {session.user?.image ? (
             <Image
               src={session.user.image}
@@ -26,7 +25,6 @@ export function AuthButtons() {
               className="rounded-full"
             />
           ) : (
-            // 3. Show a default icon if there's no image
             <UserCircle className="h-8 w-8 text-muted-foreground" />
           )}
         </Link>
@@ -36,10 +34,11 @@ export function AuthButtons() {
 
   return (
     <div className="flex items-center gap-2">
-      <Button variant="ghost" onClick={() => signIn("google")}>
+      {/* Updated to redirect to the dashboard after login */}
+      <Button variant="ghost" onClick={() => signIn("google", { callbackUrl: "/dashboard" })}>
         Login
       </Button>
-      <Button onClick={() => signIn("google")}>
+      <Button onClick={() => signIn("google", { callbackUrl: "/dashboard" })}>
         Sign Up
       </Button>
     </div>
