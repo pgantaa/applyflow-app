@@ -2,7 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader } from "@/components/ui/card"; // Removed CardTitle
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle2 } from "lucide-react";
 import { AnimatedAppPreview } from "@/components/AnimatedAppPreview";
@@ -13,11 +13,72 @@ import Link from "next/link";
 
 const MotionCard = motion(Card);
 
-export default function HomePage() {
-  // The 'features' array was removed as it was unused.
+// This is the clean StatsSection component with your requested style changes
+const StatsSection = () => {
+  return (
+    // 1. Section background is pure white
+    <section className="w-full py-16 text-center bg-white dark:bg-black rounded-2xl">
+      <div className="container mx-auto px-6">
+        
+        <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+          The Modern Job Search is Broken
+        </h2>
+        <p className="max-w-2xl mx-auto mt-4 text-lg text-slate-600 dark:text-slate-400">
+          Why does finding a job feel impossible? Because the system is built for volume, not for people. Industry research shows the immense challenges you're up against.
+        </p>
 
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 text-left">
+            {/* Stat Card 1 */}
+            {/* 2. Card background is a subtle slate color */}
+            <div className="bg-slate-50 rounded-2xl p-8 shadow-sm dark:bg-slate-900 dark:border dark:border-slate-800">
+                {/* 3. Number color is blue */}
+                <p className="text-5xl md:text-6xl font-extrabold text-blue-600 dark:text-blue-400">
+                6 Seconds
+                </p>
+                <h3 className="text-xl font-semibold mt-4 mb-2">
+                Average Resume Scan Time
+                </h3>
+                <p className="text-slate-600 dark:text-slate-400">
+                According to multiple HR studies, recruiters spend just six seconds making an initial "fit/no fit" decision. Your resume has to be perfect to make an instant impact.
+                </p>
+            </div>
+
+            {/* Stat Card 2 */}
+            <div className="bg-slate-50 rounded-2xl p-8 shadow-sm dark:bg-slate-900 dark:border dark:border-slate-800">
+                <p className="text-5xl md:text-6xl font-extrabold text-blue-600 dark:text-blue-400">
+                75%
+                </p>
+                <h3 className="text-xl font-semibold mt-4 mb-2">
+                of Resumes are Rejected by ATS
+                </h3>
+                <p className="text-slate-600 dark:text-slate-400">
+                Before a human sees your application, it's scanned by bots. Forbes reports that 75% of resumes are filtered out for not having the right keywords.
+                </p>
+            </div>
+
+            {/* Stat Card 3 */}
+            <div className="bg-slate-50 rounded-2xl p-8 shadow-sm dark:bg-slate-900 dark:border dark:border-slate-800">
+                <p className="text-5xl md:text-6xl font-extrabold text-blue-600 dark:text-blue-400">
+                250
+                </p>
+                <h3 className="text-xl font-semibold mt-4 mb-2">
+                Average Applicants Per Role
+                </h3>
+                <p className="text-slate-600 dark:text-slate-400">
+                For every corporate job opening, hundreds of candidates apply. Glassdoor reports an average of 250 applications per position, making it incredibly difficult to stand out.
+                </p>
+            </div>
+        </div>
+        
+        {/* 4. Concluding line has been removed */}
+      </div>
+    </section>
+  );
+};
+
+
+export default function HomePage() {
   const testimonials = [
-    // Corrected unescaped characters in the quotes
     { quote: "ApplyFlow saved me 10+ hours a week. I went from 0 interviews to 5 in the first month!", name: "Sarah J.", role: "Product Manager" },
     { quote: "The quality of the tailored resumes is insane. It's like having a personal career coach.", name: "Michael B.", role: "Software Engineer" },
     { quote: "Finally, a service that just works. I delegated my entire job search and focused on prepping for interviews.", name: "Emily L.", role: "UX Designer" },
@@ -41,7 +102,6 @@ export default function HomePage() {
             We apply to jobs for you — with customized resumes &amp; cover letters. Human assistants + AI tailoring. No bots to get you banned.
           </p>
           <div className="flex gap-4 justify-center md:justify-start">
-            {/* 2. This button is now the Join Waitlist button */}
             <Button size="lg" className="shadow-lg" asChild>
              <Link href="/waitlist">Join Waitlist</Link>
             </Button>
@@ -68,6 +128,9 @@ export default function HomePage() {
 
       {/* 3. How It Works Section */}
       <HowItWorksSection/>
+
+      {/* 4. The 'Broken System' Stats Section */}
+      <StatsSection />
 
       {/* 5. Testimonials Section */}
       <section className="text-center space-y-12">
